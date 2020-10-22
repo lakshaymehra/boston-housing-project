@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict House Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="CRIM" placeholder="per capita crime rate by town" required="required" /><br>
+        <input type="text" name= "ZN" placeholder= "proportion of residential land zoned for lots over 25,000 sq.ft." required="required" /><br>
+		<input type="text" name="INDUS" placeholder="proportion of non-retail business acres per town" required="required" /><br>
+        <input type="text" name="CHAS" placeholder="Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)" required="required" /><br>
+        <input type="text" name="NOX" placeholder="nitric oxides concentration (parts per 10 million)" required="required" /><br>
+        <input type="text" name="RM" placeholder="average number of rooms per dwelling" required="required" /><br>
+        <input type="text" name="AGE" placeholder="proportion of owner-occupied units built prior to 1940" required="required" /><br>
+        <input type="text" name="DIS" placeholder="weighted distances to five Boston employment centres" required="required" /><br>
+        <input type="text" name="RAD" placeholder="index of accessibility to radial highways" required="required" /><br>
+        <input type="text" name="TAX" placeholder="full-value property-tax rate per $10,000" required="required" /><br>
+        <input type="text" name="PTRATIO" placeholder="pupil-teacher ratio by town" required="required" /><br>
+        <input type="text" name="B" placeholder="1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town" required="required" /><br>
+        <input type="text" name="LSTAT" placeholder="% lower status of the population" required="required" /><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict House Price In USD</button><br>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
